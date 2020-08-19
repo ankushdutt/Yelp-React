@@ -35,6 +35,10 @@ const RestaurantList = () => {
     history.push(`/restaurants/${id}/update`);
   };
 
+  const handleRestaurantSelect = (id) => {
+    history.push(`/restaurants/${id}`);
+  };
+
   return (
     <div className="list-group">
       <table className="table table-hover table-dark">
@@ -53,7 +57,9 @@ const RestaurantList = () => {
             restaurants.map((restaurant) => {
               return (
                 <tr key={restaurant.id}>
-                  <td>{restaurant.name}</td>
+                  <td onClick={() => handleRestaurantSelect(restaurant.id)}>
+                    {restaurant.name}
+                  </td>
                   <td>{restaurant.location}</td>
                   <td>{"$".repeat(restaurant.price_range)}</td>
                   <td>Rating</td>
